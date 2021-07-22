@@ -1,0 +1,89 @@
+html,
+body,
+div,
+p {
+    font-family: "Barlow", sans-serif;
+}
+
+body,
+html {
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+body {
+    background-color: #563de51f;
+    color: #563de5;
+}
+
+h1 {
+    text-align: center;
+    font-size: 4vw;
+    text-decoration: underline;
+    align-self: center;
+    width: 100%;
+}
+
+.question {
+    margin-bottom: 2vh;
+    font-size: 3vw;
+}
+
+.answers {
+    margin-bottom: 2vh;
+    text-align: left;
+    display: inline-block;
+}
+
+.answers label {
+    display: block;
+    margin-bottom: 2vh;
+    font-size: 2vw !important;
+}
+
+.radio {
+    font-size: 2vw !important;
+}
+
+button {
+    color: white;
+    font-size: 3vw;
+    border: none;
+    cursor: pointer;
+    padding: 2vw;
+    margin-top: 2vw;
+    border-radius: 2vw;
+    background-color: #563de5;
+}
+
+.slide {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.5s;
+}
+
+.active-slide {
+    opacity: 1;
+    z-index: 2;
+}
+
+.quizContainer {
+    position: relative;
+    height: 50%;
+    margin-top: 2%;
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.hidden_input {
+    display: none;
+}

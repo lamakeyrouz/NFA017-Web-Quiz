@@ -43,8 +43,8 @@ h2 {
 }
 
 body {
-    background-color: #3db4e718;
-    color: #3db4e5;
+    background-color: #563de51f;
+    color: #563de5;
 }
 
 div {
@@ -63,7 +63,7 @@ div {
 
 .question {
     font-size: 200%;
-    border: 1vw solid #3db4e5 !important;
+    border: 1vw solid #563de5 !important;
     border-radius: 2vw;
     margin-top: 2vh;
     padding: 0.5vw;
@@ -73,7 +73,7 @@ input {
     background-color: transparent;
     outline: none;
     border: none;
-    color: #3db4e5;
+    color: #563de5;
     width: 95%;
     cursor: pointer;
     font-size: 2vw;

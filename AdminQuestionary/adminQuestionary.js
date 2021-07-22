@@ -1,15 +1,10 @@
-window.onload = function() {
-    document.getElementById("right_answer").style.display = "none"
-    document.getElementById("right_answer_label").style.display = "none"
-    showAnswers(0)
-};
-
 function isEmpty(str) {
     return (!str || str.length === 0);
 }
 
 function showAnswers(number) {
-    var answers = document.getElementsByClassName("answers")
+    var answers = document.getElementsByClassName("answers");
+    var input_answers = document.getElementsByClassName("input_answer");
     if (number == 0) {
         for (const element of answers) {
             element.style.display = "none";
@@ -17,9 +12,10 @@ function showAnswers(number) {
     } else {
         for (let i = 0; i < answers.length; i++) {
             if (i < number) {
-                answers[i].style.display = "flex"
+                answers[i].style.display = "flex";
             } else {
-                element.style.display = "none";
+                answers[i].style.display = "none";
+                input_answers[i].value = null;
             }
         }
     }
@@ -82,9 +78,10 @@ function checkForm() {
 }
 
 function checkData(data) {
-
+    document.getElementById("right_answer").style.display = "none";
+    document.getElementById("right_answer_label").style.display = "none";
     if (data) {
-        var jsonArray = JSON.parse(JSON.stringify(data))
+        var jsonArray = JSON.parse(JSON.stringify(data));
         var language = document.getElementById("Languages");
         var difficulty = document.getElementById("difficulty");
         var question = document.getElementById("question");
@@ -108,9 +105,9 @@ function checkData(data) {
         rightAnswer.innerHTML = html;
 
         for (let i = 0; i < length; i++) {
-            answers[i].value = jsonArray.answers[i]
+            answers[i].value = jsonArray.answers[i];
             if (!isEmpty(jsonArray.rightAnswer) && jsonArray.rightAnswer == jsonArray.answers[i]) {
-                rightAnswer.value = i + 1
+                rightAnswer.value = i + 1;
             }
         }
 
@@ -119,6 +116,10 @@ function checkData(data) {
     } else {
         showAnswers(0);
     }
+}
+
+function goToList() {
+    window.location.href = `../QuestionsList/questionList.php`;
 }
 
 function goToAuthentication() {

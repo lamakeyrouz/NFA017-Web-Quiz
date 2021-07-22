@@ -1,3 +1,6 @@
+/*
+* TO RUN THIS CODE MANUALLY ONLY IF DATABASE HAVE BEEN DELETED OR WASN'T CREATED IN THE FIRST PLACE
+*/
 <?php
  $link = mysqli_connect('localhost', 'root', '') or 
        die(mysqli_connect_errno()." : ".mysqli_connect_error());

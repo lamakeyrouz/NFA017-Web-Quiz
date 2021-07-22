@@ -11,7 +11,7 @@
             if(strcmp($user_password, $row["password"]) == 0){
                 setcookie("AdminId","", time() - 3600 ,"/");
                 setcookie("UserId", $row["idabonne"], time() + (10 * 365 * 24 * 60 * 60), "/");
-                header("Location: ../../AdminQuestionary/adminQuestionary.php");
+                header("Location: ../../UserHomePage/userHomePage.php");
             }else{
                 echo "<script>alert('wrong username or password')</script>";
             }
