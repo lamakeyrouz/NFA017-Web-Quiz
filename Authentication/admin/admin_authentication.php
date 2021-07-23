@@ -9,6 +9,7 @@
         $row = mysqli_fetch_array($res);
         if(mysqli_num_rows($res) > 0 ){
             if(strcmp($admin_password ,$row["password"]) == 0){
+                // Set cookies to save the type of login and to use the id of the admin/user
                 setcookie("UserId","", time() - 3600 ,"/");
                 setcookie("AdminId", $row["idadmin"], time() + (10 * 365 * 24 * 60 * 60), "/");
                 header("Location: ../../AdminQuestionary/adminQuestionary.php");

@@ -1,8 +1,14 @@
+/**
+ * Helper class to store the data of the quiz
+ */
 class Data {
     static data_array = [];
     static currentSlide = 0;
 }
 
+/**
+ * Helper to build the quiz and show them in html elements
+ */
 function buildQuiz() {
     Data.currentSlide = 0;
     const quizContainer = document.getElementById('quiz');
@@ -35,6 +41,9 @@ function buildQuiz() {
     quizContainer.innerHTML = output.join('');
 }
 
+/**
+ * Function to help count the correct answers and submit them to the hidden form by "post" method for better security
+ */
 function showResults() {
     const quizContainer = document.getElementById('quiz');
     const quiz_form = document.getElementById('quiz_form');
@@ -73,8 +82,13 @@ function showResults() {
 
 }
 
+/**
+ * Show Slides
+ * @param {Number} n 
+ * 
+ * Shows the specific slide and button according to it's index
+ */
 function showSlide(n) {
-
     const previousButton = document.getElementById("previous");
     const nextButton = document.getElementById("next");
     const slides = document.querySelectorAll(".slide");
@@ -97,14 +111,26 @@ function showSlide(n) {
     }
 }
 
+/**
+ * Shows next slide
+ */
 function showNextSlide() {
     showSlide(Data.currentSlide + 1);
 }
 
+/**
+ * Shows previous slide
+ */
 function showPreviousSlide() {
     showSlide(Data.currentSlide - 1);
 }
 
+/**
+ * Save Data
+ * @param {JSON} data 
+ * 
+ * Saves the data in form of an array to our Data class
+ */
 function saveData(data) {
     if (data) {
         var jsonArray = JSON.parse(JSON.stringify(data));

@@ -2,16 +2,22 @@
     include '../connect.php';
 
     $something_wrong = "<script>alert('Something went wrong, please try again later');window.location.href = '../UserHomePage/userHomePage.php';</script>";
+
     if (isset($_POST["Languages"]) && isset($_POST["difficulty"])) {
         $language = $_POST["Languages"];
         $difficulty = $_POST["difficulty"];
         
+        // Get all questions based on language and difficulty
         $check_tests_query = "SELECT * FROM question JOIN langage ON (question.idlangage = langage.idlangage) WHERE nomlangage = '$language' AND niveau = $difficulty";
         $check_tests_res = mysqli_query($db, $check_tests_query);
 
         $quiz = array();
         $quiz_object = null;
+
+        // If we don't have more than 5 question for that language or difficulty send the user back to the home page
         if (mysqli_num_rows($check_tests_res) >= 5) {
+
+            // Select 5 random questions
             $random_questions_query = "SELECT * FROM question order by RAND() limit 5";
             $res = mysqli_query($db, $random_questions_query);
 
@@ -21,6 +27,7 @@
                     $answers_query = "SELECT * FROM reponse WHERE noquestion = $no_question";
                     $answers_res = mysqli_query($db, $answers_query);
                     if($answers_res){
+                        // Builds the associative array to pass it to the javascript BuildQuiz function with the questions, answers and the right answer
                         $answer_array = array();
                         $answer_array_ids = array();
                         $correct = null;
@@ -54,6 +61,8 @@
         $difficulty = $_POST["difficulty"];
         $UserId = $_COOKIE["UserId"];
         $date_temp=date("Y-m-d",strtotime($date));
+
+        // Insert the results into the test table
         $query = "INSERT INTO test(note, datetest, idlangage, niveau, idabonne) VALUES ('$user_result', '$date_temp', '$langage', '$difficulty', '$UserId')";
         $query_result = mysqli_query($db, $query) or die(mysqli_error($db));
         if($query_result) {

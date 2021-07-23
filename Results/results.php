@@ -5,6 +5,7 @@
     $res = mysqli_query($db , $query);
     $no_data = false;
 
+    // Checks if string is empty or blank
     function notEmpty($string) {
         return strlen(trim($string)) > 0;
     }

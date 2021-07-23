@@ -9,6 +9,7 @@
         $row = mysqli_fetch_array($res);
         if(mysqli_num_rows($res) > 0 ){
             if(strcmp($user_password, $row["password"]) == 0){
+                // Set cookies to save the type of login and to use the id of the admin/user
                 setcookie("AdminId","", time() - 3600 ,"/");
                 setcookie("UserId", $row["idabonne"], time() + (10 * 365 * 24 * 60 * 60), "/");
                 header("Location: ../../UserHomePage/userHomePage.php");

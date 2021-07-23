@@ -1,7 +1,7 @@
-/*
-* TO RUN THIS CODE MANUALLY ONLY IF DATABASE HAVE BEEN DELETED OR WASN'T CREATED IN THE FIRST PLACE
-*/
 <?php
+/*
+* THIS FILE SHOULD BE RUN MANUALLY ONE TIME ONLY IF DATABASE HAVE BEEN DELETED OR WASN'T CREATED IN THE FIRST PLACE
+*/
  $link = mysqli_connect('localhost', 'root', '') or 
        die(mysqli_connect_errno()." : ".mysqli_connect_error());
        mysqli_query($link, "create database web_quiz") 
